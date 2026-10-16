@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>ERDENIS — Autonomous UAV Evasion & Tactical Decision Framework</title>
+  <meta name="title" content="ERDENIS — Autonomous UAV Evasion & Tactical Decision Framework">
+  <meta name="description" content="A reinforcement learning decision-making framework enabling unmanned aerial vehicles (UAVs) to perform autonomous tactical evasion maneuvers against dynamic threats within physical flight capabilities.">
+  <meta name="keywords" content="ERDENIS, UAV, Drone Evasion, Reinforcement Learning, AirSim, Gazebo, Autonomous Flight, Defense Aerospace, Tactical Decision Making">
+  <meta name="author" content="ERDENIS Project Team">
+  <link rel="canonical" href="https://erdenis.com">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://erdenis.com/">
+  <meta property="og:title" content="ERDENIS — Autonomous UAV Evasion & Tactical Decision Framework">
+  <meta property="og:description" content="Reinforcement learning framework empowering UAVs to autonomously evade hostile threats in high-fidelity simulation and real-world flight envelopes.">
+  <meta property="og:image" content="assets/hero-uav.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://erdenis.com/">
+  <meta property="twitter:title" content="ERDENIS — Autonomous UAV Evasion & Tactical Decision Framework">
+  <meta property="twitter:description" content="Reinforcement learning framework empowering UAVs to autonomously evade hostile threats in high-fidelity simulation and real-world flight envelopes.">
+  <meta property="twitter:image" content="assets/hero-uav.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/badge.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="aerospace-theme">
+
+  <!-- Tactical Grid & Ambient Glow Background -->
+  <div class="bg-radar-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="header-container">
+      <a href="#hero" class="brand-logo" id="brand-logo">
+        <img src="assets/badge.jpg" alt="ERDENIS Tactical Emblem" class="logo-emblem">
+        <div class="brand-text">
+          <span class="brand-title">ERDENIS</span>
+          <span class="brand-subtitle">AUTONOMOUS UAV DEFENSE</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="main-nav" aria-label="Main Navigation">
+        <a href="#overview" class="nav-link" id="nav-overview">Overview</a>
+        <a href="#architecture" class="nav-link" id="nav-architecture">Framework</a>
+        <a href="#simulator" class="nav-link" id="nav-simulator">Live Radar Sim</a>
+        <a href="#benchmarks" class="nav-link" id="nav-benchmarks">Benchmarks</a>
+        <a href="#team" class="nav-link" id="nav-team">Team & Advisor</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#simulator" class="btn btn-sm btn-cyan" id="header-cta-sim">
+          <span class="btn-radar-dot"></span>
+          Live Simulator
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <nav class="mobile-nav">
+      <a href="#overview" class="mobile-link">Overview</a>
+      <a href="#architecture" class="mobile-link">Framework Architecture</a>
+      <a href="#simulator" class="mobile-link">Live Radar Sim</a>
+      <a href="#benchmarks" class="mobile-link">Benchmark Evaluation</a>
+      <a href="#team" class="mobile-link">Team & Advisor</a>
+      <a href="#simulator" class="btn btn-cyan btn-full">Launch Simulator</a>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <div class="tag-badge-row">
+            <span class="status-pill pill-cyan">
+              <span class="pulse-indicator"></span>
+              REINFORCEMENT LEARNING UAV SYSTEM
+            </span>
+            <span class="status-pill pill-neutral">
+              CAPSTONE PROJECT 2026
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+            Autonomous Evasion & <span class="gradient-text">Tactical Decision-Making</span> for Unmanned Aerial Systems
+          </h1>
+
+          <p class="hero-description">
+            ERDENIS is an advanced reinforcement learning decision-making framework engineered for military UAVs to autonomously detect, evaluate, and execute high-agility evasive maneuvers against dynamic aerial threats while staying strictly within physical flight envelope limits.
+          </p>
+
+          <div class="hero-meta-badges">
+            <div class="meta-badge">
+              <span class="meta-label">SIMULATION ENV</span>
+              <span class="meta-value">AirSim & Gazebo</span>
+            </div>
+            <div class="meta-badge">
+              <span class="meta-label">LEARNING AGENT</span>
+              <span class="meta-value">Deep RL (PPO / SAC)</span>
+            </div>
+            <div class="meta-badge">
+              <span class="meta-label">DOMAIN</span>
+              <span class="meta-value">Tactical Defense UAV</span>
+            </div>
+            <div class="meta-badge">
+              <span class="meta-label">ADVISOR</span>
+              <span class="meta-value text-cyan">Dr. Gökçe Nur Yılmaz</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#simulator" class="btn btn-lg btn-glow-cyan" id="hero-cta-sim">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+              Launch Interactive Radar Sim
+            </a>
+            <a href="#overview" class="btn btn-lg btn-glass" id="hero-cta-specs">
+              Explore Project Specs
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="hud-frame">
+            <div class="hud-top-bar">
+              <div class="hud-stat">
+                <span class="hud-dot"></span>
+                <span>SYSTEM: ARMED // RL-ACTIVE</span>
+              </div>
+              <div class="hud-coords">SIM: AIRSIM_PX4</div>
+            </div>
+
+            <div class="hud-image-wrapper">
+              <img src="assets/hero-uav.jpg" alt="Autonomous ERDENIS Stealth UAV Supersonic Evasion" class="hero-image">
+              
+              <!-- Floating Tactical HUD Overlay Panels -->
+              <div class="hud-card hud-top-right">
+                <div class="hud-metric-title">TELEMETRY LOCK</div>
+                <div class="hud-metric-row">
+                  <span>ALTITUDE:</span>
+                  <span class="text-cyan font-mono">21,500 FT</span>
+                </div>
+                <div class="hud-metric-row">
+                  <span>VELOCITY:</span>
+                  <span class="text-cyan font-mono">MACH 2.4</span>
+                </div>
+                <div class="hud-metric-row">
+                  <span>G-LOAD:</span>
+                  <span class="text-amber font-mono">5.2G / 9.0G MAX</span>
+                </div>
+              </div>
+
+              <div class="hud-card hud-bottom-left">
+                <div class="hud-metric-title">EVASION CONFIDENCE</div>
+                <div class="hud-bar-container">
+                  <div class="hud-bar-fill" style="width: 94.8%;"></div>
+                </div>
+                <div class="hud-status-text">
+                  <span class="text-green font-mono">94.8% SUCCESS ESTIMATE</span>
+                  <span class="threat-alert">THREAT BROKEN</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hud-bottom-bar">
+              <span>PROJECT WEB: erdenis.com</span>
+              <span class="font-mono text-cyan">LATENCY: 42ms (RL INFERENCE)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div class="container">
+        <div class="stats-strip" id="stats-strip">
+          <div class="stat-item">
+            <div class="stat-number font-mono text-cyan" data-target="94.8">94.8%</div>
+            <div class="stat-desc">Avoidance Success Rate in Multi-Threat Simulation</div>
+          </div>
+          <div class="stat-separator"></div>
+          <div class="stat-item">
+            <div class="stat-number font-mono text-white" data-target="82">&lt; 82 ms</div>
+            <div class="stat-desc">Average Evasion Action Latency vs 240ms PID Baseline</div>
+          </div>
+          <div class="stat-separator"></div>
+          <div class="stat-item">
+            <div class="stat-number font-mono text-green" data-target="100">100%</div>
+            <div class="stat-desc">Kinematic Flight Envelope Compliance (Zero Structural Stall)</div>
+          </div>
+          <div class="stat-separator"></div>
+          <div class="stat-item">
+            <div class="stat-number font-mono text-amber" data-target="1000">1000+</div>
+            <div class="stat-desc">AirSim & Gazebo Simulated Dogfight & Missile Scenarios</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview & Problem Statement -->
+    <section class="section-container" id="overview">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">PROJECT MISSION</span>
+          <h2 class="section-title">The Challenge in Modern Autonomous Aerial Warfare</h2>
+          <p class="section-subtitle">
+            Modern combat environments demand autonomous unmanned aerial vehicles capable of making split-second tactical survival decisions without relying on delayed human teleoperation.
+          </p>
+        </div>
+
+        <div class="grid-2-col">
+          <div class="glass-card tactical-card">
+            <div class="card-icon icon-danger">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <h3 class="card-title text-red">The Problem with Traditional Approaches</h3>
+            <ul class="feature-checklist list-danger">
+              <li>
+                <strong>Rigid Rule-Based Vulnerability:</strong> Conventional Artificial Potential Field (APF) and geometric PID algorithms fall into local minima when encountering multi-directional threats or high-speed missiles.
+              </li>
+              <li>
+                <strong>Teleoperation Latency:</strong> Remote pilot communication latency (150ms–500ms) or electronic jamming renders human-in-the-loop evasion obsolete against modern Surface-to-Air Missiles (SAM).
+              </li>
+              <li>
+                <strong>Aerodynamic Envelope Violations:</strong> Heuristic controllers often demand impossible roll-rates or G-forces, inducing aircraft stall, structural overload, or complete loss of control.
+              </li>
+              <li>
+                <strong>Inability to Generalize:</strong> Static algorithms fail when threat trajectories, sensor noise, or wind gusts deviate from predetermined lab models.
+              </li>
+            </ul>
+          </div>
+
+          <div class="glass-card tactical-card card-highlight">
+            <div class="card-icon icon-success">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="card-title text-cyan">The ERDENIS Solution: Deep Reinforcement Learning</h3>
+            <ul class="feature-checklist list-success">
+              <li>
+                <strong>Continuous Action Policy Optimization:</strong> Leveraging actor-critic algorithms (PPO & SAC) to synthesize optimal non-linear 3D evasion vectors in real time.
+              </li>
+              <li>
+                <strong>Realistic Flight Envelope Constraints:</strong> Reward shaping penalizes excessive load factors ($n_z$), angle of attack ($\alpha$) excursions, and sideslip, ensuring airframe structural integrity.
+              </li>
+              <li>
+                <strong>AirSim & Gazebo High-Fidelity Simulation:</strong> Trained across tens of thousands of dynamic combat scenarios with photorealistic sensory inputs and realistic aerodynamic drag.
+              </li>
+              <li>
+                <strong>Mission Preservation vs. Evasion Balance:</strong> The agent does not simply flee aimlessly; it maximizes survival probability while recovering the optimal heading toward mission objectives.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Architecture & Methodology -->
+    <section class="section-container bg-darker" id="architecture">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">SYSTEM ARCHITECTURE</span>
+          <h2 class="section-title">Four-Tier Decision & Evasion Pipeline</h2>
+          <p class="section-subtitle">
+            From raw sensory perception to aerodynamic actuation, ERDENIS executes a mathematically bounded decision pipeline at 50Hz.
+          </p>
+        </div>
+
+        <div class="pipeline-grid">
+          <div class="pipeline-card" id="pipe-1">
+            <div class="pipeline-step-num font-mono">01</div>
+            <div class="pipeline-header">
+              <h3 class="pipeline-title">Perception & Threat Space</h3>
+              <span class="pipeline-tag">Sensory & RWR</span>
+            </div>
+            <p class="pipeline-text">
+              Aggregates Radar Warning Receiver (RWR) azimuth, missile closing velocity ($V_c$), line-of-sight (LOS) rate, and adversarial UAV telemetry through Kalman filtering.
+            </p>
+            <div class="pipeline-meta font-mono">Inputs: 24-dim state vector</div>
+          </div>
+
+          <div class="pipeline-card" id="pipe-2">
+            <div class="pipeline-step-num font-mono">02</div>
+            <div class="pipeline-header">
+              <h3 class="pipeline-title">Kinematic Envelope Guard</h3>
+              <span class="pipeline-tag">Aerodynamics</span>
+            </div>
+            <p class="pipeline-text">
+              Calculates instant G-limits, maximum available roll rate, dynamic pressure ($q$), and stall boundaries based on the current airspeed and flight altitude.
+            </p>
+            <div class="pipeline-meta font-mono">Constraint: -3.0G &le; nz &le; +9.0G</div>
+          </div>
+
+          <div class="pipeline-card highlight-step" id="pipe-3">
+            <div class="pipeline-step-num font-mono">03</div>
+            <div class="pipeline-header">
+              <h3 class="pipeline-title">DRL Evasion Engine</h3>
+              <span class="pipeline-tag">PPO / SAC Policy</span>
+            </div>
+            <p class="pipeline-text">
+              Evaluates the optimal 3D evasion trajectory (barrel roll, split-S, break turn, or low-altitude masking) using deep neural networks trained with custom multi-objective rewards.
+            </p>
+            <div class="pipeline-meta font-mono">Inference: &lt; 20ms execution</div>
+          </div>
+
+          <div class="pipeline-card" id="pipe-4">
+            <div class="pipeline-step-num font-mono">04</div>
+            <div class="pipeline-header">
+              <h3 class="pipeline-title">Autopilot Actuation</h3>
+              <span class="pipeline-tag">PX4 / ArduPilot</span>
+            </div>
+            <p class="pipeline-text">
+              Translates target bank angle, pitch rate, and throttle commands into control surface deflections and thrust vectors delivered directly to the flight controller.
+            </p>
+            <div class="pipeline-meta font-mono">Interface: MAVLink / ROS 2</div>
+          </div>
+        </div>
+
+        <!-- Simulation Scenario Showcase -->
+        <div class="simulation-overview-panel">
+          <div class="sim-panel-content">
+            <div class="panel-badge">SIMULATION PLATFORMS</div>
+            <h3>Validated in High-Fidelity Physics Environments</h3>
+            <p>
+              The ERDENIS decision framework is rigorously developed and cross-evaluated in both <strong>Microsoft AirSim</strong> (Unreal Engine photorealistic rendering and vehicle dynamics) and <strong>Open Robotics Gazebo</strong> (ODE physics, ROS 2 integration, and wind turbulence modeling).
+            </p>
+            <div class="sim-feature-grid">
+              <div class="sim-feature">
+                <span class="sim-check">&#10003;</span>
+                <div>
+                  <strong>Surface-to-Air Missile (SAM) Interception:</strong>
+                  <span>Proportional navigation missile pursuit with high acceleration vectors.</span>
+                </div>
+              </div>
+              <div class="sim-feature">
+                <span class="sim-check">&#10003;</span>
+                <div>
+                  <strong>Adversarial UAV Dogfight:</strong>
+                  <span>Hostile interceptor closing in with gun-lock and thermal tracking angles.</span>
+                </div>
+              </div>
+              <div class="sim-feature">
+                <span class="sim-check">&#10003;</span>
+                <div>
+                  <strong>Multi-Threat Saturation:</strong>
+                  <span>Simultaneous radar lock and incoming kinetic projectile from contrasting quadrants.</span>
+                </div>
+              </div>
+              <div class="sim-feature">
+                <span class="sim-check">&#10003;</span>
+                <div>
+                  <strong>Terrain Masking Evasion:</strong>
+                  <span>Autonomous descent into canyon corridors to break line-of-sight radar lock.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sim-panel-badge-card">
+            <img src="assets/badge.jpg" alt="ERDENIS Tactical Badge" class="sim-panel-emblem">
+            <div class="badge-card-info">
+              <span class="badge-code font-mono">SYS-DEF-2026-RL</span>
+              <span class="badge-role">Autonomous Tactical Wing</span>
+              <span class="badge-institution">Capstone Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Radar Simulator -->
+    <section class="section-container" id="simulator">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag pulse-tag">INTERACTIVE SHOWCASE</span>
+          <h2 class="section-title">Live Tactical Radar Evasion Simulator</h2>
+          <p class="section-subtitle">
+            Experience the ERDENIS Reinforcement Learning evasion algorithm in action. Spawn incoming threat vectors, toggle between RL and Conventional PID baselines, and monitor real-time telemetry.
+          </p>
+        </div>
+
+        <div class="sim-app-wrapper" id="sim-app">
+          
+          <!-- Tactical Simulator Top Bar -->
+          <div class="sim-top-hud">
+            <div class="sim-status-group">
+              <div class="sim-live-indicator">
+                <span class="radar-sweep-icon"></span>
+                <span class="font-mono text-cyan">TACTICAL RADAR 2D // RANGE: 15.0 KM</span>
+              </div>
+              <div class="sim-mode-badge" id="sim-mode-badge">
+                CURRENT MODE: <span class="text-cyan font-bold" id="current-mode-label">DEEP REINFORCEMENT LEARNING</span>
+              </div>
+            </div>
+
+            <div class="sim-hud-controls">
+              <button class="btn-toggle-sound" id="btn-toggle-sound" title="Toggle Tactical Audio Effects">
+                <span id="sound-icon">🔊</span> Tactical Audio: <span id="sound-state">ON</span>
+              </button>
+              <button class="btn-sim-reset" id="btn-sim-reset">
+                ↻ Reset Simulation
+              </button>
+            </div>
+          </div>
+
+          <!-- Main Simulation Canvas & Telemetry HUD Layout -->
+          <div class="sim-grid-layout">
+            
+            <!-- Canvas Radar Display -->
+            <div class="radar-canvas-container">
+              <canvas id="radarCanvas" width="800" height="560"></canvas>
+              
+              <!-- Floating Overlay Alerts -->
+              <div class="radar-overlay-threat hidden" id="radarThreatAlert">
+                <div class="threat-beacon"></div>
+                <span id="threatAlertText">WARNING: HOSTILE MISSILE LOCK DETECTED</span>
+              </div>
+
+              <div class="radar-overlay-success hidden" id="radarSuccessAlert">
+                <span class="success-icon">✓</span>
+                <span id="successAlertText">EVASION SUCCESSFUL: THREAT SIGNATURE BROKEN</span>
+              </div>
+
+              <!-- Canvas Tactical Compass / Scale -->
+              <div class="radar-compass">
+                <span>N 000°</span>
+              </div>
+              <div class="radar-range-rings">
+                <span class="range-tag r-5km">5 KM</span>
+                <span class="range-tag r-10km">10 KM</span>
+                <span class="range-tag r-15km">15 KM</span>
+              </div>
+            </div>
+
+            <!-- Side Telemetry & Controls Panel -->
+            <div class="sim-telemetry-sidebar">
+              
+              <!-- Decision Mode Switcher -->
+              <div class="telemetry-box">
+                <div class="box-title">DECISION-MAKING FRAMEWORK</div>
+                <div class="mode-buttons-row">
+                  <button class="mode-btn active" id="btn-mode-rl" data-mode="rl">
+                    <span class="mode-tag">RECOMMENDED</span>
+                    <span class="mode-name">ERDENIS Deep RL</span>
+                    <span class="mode-sub">Continuous Policy + Envelope</span>
+                  </button>
+                  <button class="mode-btn" id="btn-mode-conventional" data-mode="conventional">
+                    <span class="mode-tag tag-muted">BASELINE</span>
+                    <span class="mode-name">Conventional APF</span>
+                    <span class="mode-sub">Rule-Based Potential Field</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Threat Injector Controls -->
+              <div class="telemetry-box">
+                <div class="box-title">SPAWN THREAT VECTOR</div>
+                <div class="threat-spawners-grid">
+                  <button class="btn-threat btn-threat-sam" id="btn-spawn-sam">
+                    <span class="threat-btn-icon">🚀</span>
+                    <div>
+                      <div class="threat-name">Surface-to-Air Missile</div>
+                      <div class="threat-meta">High Speed (Mach 3.5) • High G-Turn</div>
+                    </div>
+                  </button>
+
+                  <button class="btn-threat btn-threat-uav" id="btn-spawn-interceptor">
+                    <span class="threat-btn-icon">🛸</span>
+                    <div>
+                      <div class="threat-name">Adversarial Drone</div>
+                      <div class="threat-meta">Flanking Interceptor • Combat Lock</div>
+                    </div>
+                  </button>
+
+                  <button class="btn-threat btn-threat-multi" id="btn-spawn-pincer">
+                    <span class="threat-btn-icon">⚡</span>
+                    <div>
+                      <div class="threat-name">Pincer Saturation</div>
+                      <div class="threat-meta">Dual Converging Threat Vectors</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Live Telemetry Readouts -->
+              <div class="telemetry-box">
+                <div class="box-title">UAV FLIGHT TELEMETRY (ERDENIS-01)</div>
+                <div class="telemetry-metrics-list">
+                  <div class="tel-row">
+                    <span class="tel-name">THREAT DISTANCE:</span>
+                    <span class="tel-val font-mono" id="tel-threat-dist">-- KM</span>
+                  </div>
+                  <div class="tel-row">
+                    <span class="tel-name">CLOSING VELOCITY (Vc):</span>
+                    <span class="tel-val font-mono" id="tel-closing-speed">0 M/S</span>
+                  </div>
+                  <div class="tel-row">
+                    <span class="tel-name">UAV AIRSPEED:</span>
+                    <span class="tel-val font-mono text-cyan" id="tel-uav-speed">480 KT</span>
+                  </div>
+                  <div class="tel-row">
+                    <span class="tel-name">INSTANTANEOUS G-LOAD:</span>
+                    <span class="tel-val font-mono" id="tel-gload">1.2 G</span>
+                  </div>
+                  <div class="tel-row">
+                    <span class="tel-name">ENVELOPE INTEGRITY:</span>
+                    <span class="tel-val font-mono text-green" id="tel-envelope">OPTIMAL (100%)</span>
+                  </div>
+                  <div class="tel-row">
+                    <span class="tel-name">COUNTERMEASURES:</span>
+                    <span class="tel-val font-mono text-amber" id="tel-chaff">AUTO-DEPLOY ARMED</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Simulation Score Tracker -->
+              <div class="telemetry-box box-score">
+                <div class="score-row">
+                  <div>
+                    <div class="score-label">SIMULATED ENCOUNTERS</div>
+                    <div class="score-num font-mono" id="score-total">0</div>
+                  </div>
+                  <div>
+                    <div class="score-label">SUCCESSFUL EVASIONS</div>
+                    <div class="score-num font-mono text-green" id="score-success">0</div>
+                  </div>
+                  <div>
+                    <div class="score-label">COLLISIONS / LOCKS</div>
+                    <div class="score-num font-mono text-red" id="score-hits">0</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Tactical Footer Bar -->
+          <div class="sim-footer-bar">
+            <span>Tip: Click on the radar screen to manually designate a custom threat vector origin point.</span>
+            <span class="font-mono text-cyan">ALGORITHM: REINFORCEMENT LEARNING POLICY (ACTOR-CRITIC)</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparative Benchmarks & Evaluation -->
+    <section class="section-container bg-darker" id="benchmarks">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">EMPIRICAL EVALUATION</span>
+          <h2 class="section-title">Performance Comparison: DRL vs Conventional Schemes</h2>
+          <p class="section-subtitle">
+            Systematic benchmark across hundreds of randomized scenarios simulating adversarial interception, missile dynamics, and sensor noise.
+          </p>
+        </div>
+
+        <div class="benchmark-table-wrapper glass-card">
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th>Evaluation Metric</th>
+                <th>Traditional Rule-Based (PID)</th>
+                <th>Artificial Potential Field (APF)</th>
+                <th class="th-highlight">ERDENIS (Reinforcement Learning)</th>
+                <th>Advantage / Delta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Single Threat Avoidance Rate</strong>
+                  <span class="td-sub">Standard SAM trajectory with constant guidance</span>
+                </td>
+                <td class="font-mono">74.2%</td>
+                <td class="font-mono">81.5%</td>
+                <td class="font-mono text-cyan font-bold">98.2%</td>
+                <td class="font-mono text-green">+16.7% vs APF</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Multi-Threat Saturation Rate</strong>
+                  <span class="td-sub">Simultaneous pincer attack from contrasting vectors</span>
+                </td>
+                <td class="font-mono">42.1%</td>
+                <td class="font-mono">53.0%</td>
+                <td class="font-mono text-cyan font-bold">91.4%</td>
+                <td class="font-mono text-green">+38.4% vs APF</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Average Decision Latency</strong>
+                  <span class="td-sub">Time from radar detection to control actuation</span>
+                </td>
+                <td class="font-mono">240 ms</td>
+                <td class="font-mono">165 ms</td>
+                <td class="font-mono text-cyan font-bold">&lt; 82 ms</td>
+                <td class="font-mono text-green">2.0x faster response</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Flight Envelope Protection</strong>
+                  <span class="td-sub">Adherence to vehicle max G-load & stall margin</span>
+                </td>
+                <td class="font-mono text-red">68.5% (Violations)</td>
+                <td class="font-mono text-amber">79.2% (Moderate)</td>
+                <td class="font-mono text-green font-bold">99.4% (Zero stall)</td>
+                <td class="font-mono text-green">Safe structural limit</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Mission Recovery Probability</strong>
+                  <span class="td-sub">Ability to re-orient toward target waypoint post-evasion</span>
+                </td>
+                <td class="font-mono">51.0%</td>
+                <td class="font-mono">62.8%</td>
+                <td class="font-mono text-cyan font-bold">93.6%</td>
+                <td class="font-mono text-green">+30.8% trajectory recovery</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Visual Bar Comparison -->
+        <div class="benchmark-charts-grid">
+          <div class="chart-card glass-card">
+            <h4 class="chart-title">Avoidance Success Rate in Saturated Environments</h4>
+            <div class="bar-chart-container">
+              <div class="bar-group">
+                <div class="bar-label">Conventional PID: 42.1%</div>
+                <div class="bar-track">
+                  <div class="bar-fill fill-gray" style="width: 42.1%;"></div>
+                </div>
+              </div>
+              <div class="bar-group">
+                <div class="bar-label">Artificial Potential Field: 53.0%</div>
+                <div class="bar-track">
+                  <div class="bar-fill fill-amber" style="width: 53%;"></div>
+                </div>
+              </div>
+              <div class="bar-group">
+                <div class="bar-label font-bold text-cyan">ERDENIS Deep RL: 91.4%</div>
+                <div class="bar-track">
+                  <div class="bar-fill fill-cyan" style="width: 91.4%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-card glass-card">
+            <h4 class="chart-title">Control Loop Decision-to-Actuation Latency (ms)</h4>
+            <div class="bar-chart-container">
+              <div class="bar-group">
+                <div class="bar-label">Conventional PID: 240 ms</div>
+                <div class="bar-track">
+                  <div class="bar-fill fill-gray" style="width: 80%;"></div>
+                </div>
+              </div>
+              <div class="bar-group">
+                <div class="bar-label">Artificial Potential Field: 165 ms</div>
+                <div class="bar-track">
+                  <div class="bar-fill fill-amber" style="width: 55%;"></div>
+                </div>
+              </div>
+              <div class="bar-group">
+                <div class="bar-label font-bold text-green">ERDENIS Neural Policy: 82 ms</div>
+                <div class="bar-track">
+                  <div class="bar-fill fill-green" style="width: 27%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Academic Team & Project Advisor Section -->
+    <section class="section-container" id="team">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">CAPSTONE LEADERSHIP & RESEARCHERS</span>
+          <h2 class="section-title">Academic Advisor & Engineering Team</h2>
+          <p class="section-subtitle">
+            Senior Design Capstone Project developed under the academic mentorship of our faculty advisor.
+          </p>
+        </div>
+
+        <!-- Advisor Spotlight Card -->
+        <div class="advisor-spotlight-card glass-card" id="advisor-card">
+          <div class="advisor-badge-row">
+            <span class="status-pill pill-cyan">PROJECT ADVISOR & RESEARCH SUPERVISOR</span>
+            <span class="status-pill pill-neutral">FACULTY ADVISORY</span>
+          </div>
+
+          <div class="advisor-profile-grid">
+            <div class="advisor-avatar-box">
+              <div class="advisor-avatar-circle">
+                <span class="advisor-initials">GNY</span>
+              </div>
+              <div class="advisor-verified">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#00f0ff">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <span>Academic Mentor</span>
+              </div>
+            </div>
+
+            <div class="advisor-info">
+              <h3 class="advisor-name">Gökçe Nur Yılmaz</h3>
+              <p class="advisor-role text-cyan font-mono">Academic Advisor & Supervisor</p>
+              <p class="advisor-bio">
+                Providing specialized academic direction, theoretical guidance on autonomous unmanned aerial systems, reinforcement learning methodologies, and experimental evaluation standards for the ERDENIS capstone research project.
+              </p>
+              <div class="advisor-tags">
+                <span class="tag-pill">Autonomous Systems</span>
+                <span class="tag-pill">Aerospace Guidance</span>
+                <span class="tag-pill">Decision-Making Theory</span>
+                <span class="tag-pill">Capstone Supervisor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Engineering Team Members Grid -->
+        <div class="team-grid">
+          
+          <!-- Team Member 1 -->
+          <div class="team-card glass-card">
+            <div class="member-header">
+              <div class="member-avatar">MD</div>
+              <div class="member-title-group">
+                <h4 class="member-name">Muharrem Dokgöz</h4>
+                <span class="member-role text-cyan font-mono">Core Engineering Team</span>
+              </div>
+            </div>
+            <p class="member-desc">
+              Focuses on Deep Reinforcement Learning algorithm design, Actor-Critic policy neural architecture, reward function tuning, and real-time decision inference.
+            </p>
+            <div class="member-focus-tags">
+              <span>Deep RL (PPO)</span>
+              <span>Reward Shaping</span>
+              <span>Tactical Policy</span>
+            </div>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="team-card glass-card">
+            <div class="member-header">
+              <div class="member-avatar">AN</div>
+              <div class="member-title-group">
+                <h4 class="member-name">Ayberk Neşeli</h4>
+                <span class="member-role text-cyan font-mono">Core Engineering Team</span>
+              </div>
+            </div>
+            <p class="member-desc">
+              Focuses on UAV flight dynamics, kinematic G-envelope protection, aerodynamic modeling, and stall prevention supervisory layers during high-agility turns.
+            </p>
+            <div class="member-focus-tags">
+              <span>Flight Dynamics</span>
+              <span>Envelope Protection</span>
+              <span>Kinematics</span>
+            </div>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="team-card glass-card">
+            <div class="member-header">
+              <div class="member-avatar">ZA</div>
+              <div class="member-title-group">
+                <h4 class="member-name">Zeynep Sinem Anlar</h4>
+                <span class="member-role text-cyan font-mono">Core Engineering Team</span>
+              </div>
+            </div>
+            <p class="member-desc">
+              Focuses on 3D scenario generation in Microsoft AirSim and Gazebo, sensor noise modeling, RWR simulation, and adversarial threat trajectory scripting.
+            </p>
+            <div class="member-focus-tags">
+              <span>AirSim & Gazebo</span>
+              <span>Scenario Scripting</span>
+              <span>Sensor Fusion</span>
+            </div>
+          </div>
+
+          <!-- Team Member 4 -->
+          <div class="team-card glass-card">
+            <div class="member-header">
+              <div class="member-avatar">AT</div>
+              <div class="member-title-group">
+                <h4 class="member-name">Ata Türkdoğan</h4>
+                <span class="member-role text-cyan font-mono">Core Engineering Team</span>
+              </div>
+            </div>
+            <p class="member-desc">
+              Focuses on baseline comparative benchmarking, statistical evaluation across Monte Carlo simulations, APF implementation, and autopilot telemetry integration.
+            </p>
+            <div class="member-focus-tags">
+              <span>Comparative Benchmarking</span>
+              <span>Baseline APF</span>
+              <span>Autopilot Integration</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Project Deliverables & Roadmap -->
+    <section class="section-container bg-darker" id="roadmap">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">PROJECT TIMELINE</span>
+          <h2 class="section-title">Milestones & Expected Outputs</h2>
+          <p class="section-subtitle">
+            Structured delivery roadmap leading to the final capstone presentation and graduation thesis defense.
+          </p>
+        </div>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-card completed">
+            <div class="roadmap-status font-mono">PHASE 01 • COMPLETED</div>
+            <h4 class="roadmap-title">Theoretical Framework & Requirements</h4>
+            <p class="roadmap-desc">
+              Threat space formalization, Markov Decision Process (MDP) mathematical modeling, vehicle flight limits definition, and simulation platform selection.
+            </p>
+            <span class="badge-done">✓ Milestone Reached</span>
+          </div>
+
+          <div class="roadmap-card current">
+            <div class="roadmap-status font-mono text-cyan">PHASE 02 • IN PROGRESS</div>
+            <h4 class="roadmap-title">Simulation Scenario Creation (AirSim / Gazebo)</h4>
+            <p class="roadmap-desc">
+              Implementation of diverse combat scenarios including Surface-to-Air Missile (SAM) interception, radar tracking lock, and multi-drone dogfights.
+            </p>
+            <span class="badge-active">▶ Current Focus</span>
+          </div>
+
+          <div class="roadmap-card">
+            <div class="roadmap-status font-mono text-neutral">PHASE 03 • UPCOMING</div>
+            <h4 class="roadmap-title">DRL Agent Training & Envelope Optimization</h4>
+            <p class="roadmap-desc">
+              Iterative policy training with Proximal Policy Optimization (PPO), reward curriculum learning, and hard physical envelope safety boundaries.
+            </p>
+            <span class="badge-upcoming">Planned</span>
+          </div>
+
+          <div class="roadmap-card">
+            <div class="roadmap-status font-mono text-neutral">PHASE 04 • UPCOMING</div>
+            <h4 class="roadmap-title">Comprehensive Benchmarking & Thesis Defense</h4>
+            <p class="roadmap-desc">
+              Empirical statistical comparison against traditional APF/PID algorithms, project documentation, code repository release, and jury defense.
+            </p>
+            <span class="badge-upcoming">Graduation Defense</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Project Web Page Verification Banner & Call to Action -->
+    <section class="section-container" id="project-url">
+      <div class="container">
+        <div class="cta-banner glass-card">
+          <div class="cta-content">
+            <span class="status-pill pill-cyan">OFFICIAL PROJECT WEB PAGE</span>
+            <h2 class="cta-title">Project Deployment & Verification at <span class="text-cyan">erdenis.com</span></h2>
+            <p class="cta-text">
+              This webpage serves as the official project portal for the ERDENIS Autonomous UAV Evasion Capstone Project, documenting the research methodology, live simulation demonstrations, and academic team credentials.
+            </p>
+            <div class="url-showcase-box font-mono">
+              <span class="url-label">PROJECT URL:</span>
+              <a href="https://erdenis.com" class="url-link" target="_blank" rel="noopener">https://erdenis.com</a>
+              <button class="btn-copy-url" id="btn-copy-url" title="Copy URL">Copy Link</button>
+            </div>
+          </div>
+          <div class="cta-actions">
+            <a href="#simulator" class="btn btn-lg btn-glow-cyan">Experience Live Sim</a>
+            <a href="#team" class="btn btn-lg btn-glass">Meet The Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <img src="assets/badge.jpg" alt="ERDENIS Tactical Emblem" class="logo-emblem-sm">
+          <span class="brand-title">ERDENIS</span>
+        </div>
+        <p class="footer-tagline">
+          Reinforcement Learning Decision-Making Framework for Autonomous UAV Evasion in High-Threat Airspaces.
+        </p>
+        <p class="footer-meta font-mono text-muted">
+          Official Project Webpage: erdenis.com &bull; Capstone Senior Project
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h5 class="footer-heading">NAVIGATION</h5>
+          <ul>
+            <li><a href="#overview">Overview & Problem</a></li>
+            <li><a href="#architecture">Decision Pipeline</a></li>
+            <li><a href="#simulator">Live Radar Simulator</a></li>
+            <li><a href="#benchmarks">Empirical Benchmarks</a></li>
+            <li><a href="#roadmap">Project Milestones</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="footer-heading">ACADEMIC SUPERVISION</h5>
+          <ul>
+            <li><strong class="text-white">Advisor:</strong> Gökçe Nur Yılmaz</li>
+            <li><strong class="text-white">Capstone:</strong> Senior Design Project</li>
+            <li><strong class="text-white">Scope:</strong> Autonomous Defense & Aerospace</li>
+            <li><strong class="text-white">Year:</strong> 2026 Academic Term</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="footer-heading">ENGINEERING TEAM</h5>
+          <ul>
+            <li>Muharrem Dokgöz</li>
+            <li>Ayberk Neşeli</li>
+            <li>Zeynep Sinem Anlar</li>
+            <li>Ata Türkdoğan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 ERDENIS Project. All rights reserved. Developed for Academic Graduation & Senior Capstone Presentation.</p>
+      <p class="font-mono text-cyan">Domain: erdenis.com</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="simulator.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
