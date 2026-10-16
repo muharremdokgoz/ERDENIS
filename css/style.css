@@ -49,8 +49,8 @@ ul, ol { list-style: none; }
 
 /* Site-wide background photo */
 .site-bg { position: fixed; inset: 0; z-index: -1; background: var(--navy-900); }
-.site-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; opacity: .09; filter: saturate(.7) hue-rotate(-6deg) brightness(.62) contrast(1.05); }
-.site-bg::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .5); }
+.site-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; opacity: .17; filter: saturate(.7) hue-rotate(-6deg) brightness(.8) contrast(1.05); }
+.site-bg::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .35); }
 
 /* Header */
 .site-header {
@@ -121,8 +121,8 @@ ul, ol { list-style: none; }
 .xh-tr { top: calc(var(--header-h) + 1rem); right: var(--gutter); }
 
 /* Sections */
-.section { position: relative; padding: clamp(4.5rem, 11vw, 9rem) 0; background: rgba(7, 20, 43, .76); }
-.section-alt { background: rgba(14, 42, 82, .74); }
+.section { position: relative; padding: clamp(4.5rem, 11vw, 9rem) 0; background: rgba(7, 20, 43, .5); }
+.section-alt { background: rgba(14, 42, 82, .5); }
 .section::after {
   content: ""; position: absolute; right: var(--gutter); bottom: 1.5rem; width: 18px; height: 18px; color: rgba(243, 240, 232, .4); pointer-events: none;
   background: linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat, linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat;
@@ -133,7 +133,7 @@ ul, ol { list-style: none; }
 .sec-head .label::before { content: ""; width: 28px; height: 3px; background: var(--signal-red); }
 .sec-head::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
-.contours::before { content: ""; position: absolute; inset: 0; background: url("../assets/contours.svg") right center / cover no-repeat; opacity: .07; pointer-events: none; }
+.contours::before { content: ""; position: absolute; inset: 0; background: url("../assets/contours.svg") right center / cover no-repeat; opacity: .03; pointer-events: none; }
 
 /* Project */
 .statement { max-width: 46rem; font: 500 clamp(1.4rem, 2.6vw, 2.35rem)/1.3 var(--font-head); font-stretch: 100%; letter-spacing: -.01em; color: #fff; }

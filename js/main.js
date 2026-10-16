@@ -145,7 +145,7 @@
     var top = target.getBoundingClientRect().top + window.pageYOffset - (id === 'top' ? 0 : headerHeight());
     window.scrollTo({ top: top, behavior: instant ? 'instant' : 'smooth' });
     var url = id === 'top' ? BASE : BASE + id;
-    if (push && location.pathname !== url) history.pushState(null, '', url);
+    if (location.pathname !== url) history[push ? 'pushState' : 'replaceState'](null, '', url);
   }
 
   function initRouting() {
