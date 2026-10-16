@@ -14,8 +14,8 @@ An advanced reinforcement learning decision-making framework engineered for mili
 
 ### Core Engineering Team
 - **Muharrem Dokgöz** ([@muharremdokgoz](https://github.com/muharremdokgoz)) — Deep Reinforcement Learning & Tactical Policy Optimization
-- **Ayberk Neşeli** — UAV Dynamics, Aerodynamic Modeling & Kinematic Envelope Protection
-- **Zeynep Sinem Anlar** — AirSim / Gazebo High-Fidelity Simulation & Scenario Generation
+- **Ayberk Neşeli** ([@ayberkneseli](https://github.com/ayberkneseli)) — UAV Dynamics, Aerodynamic Modeling & Kinematic Envelope Protection
+- **Zeynep Sinem Anlar** ([@zsinemanlar](https://github.com/zsinemanlar)) — AirSim / Gazebo High-Fidelity Simulation & Scenario Generation
 - **Ata Türkdoğan** — Comparative Benchmarking, APF/PID Baselines & Autopilot Integration
 
 ---

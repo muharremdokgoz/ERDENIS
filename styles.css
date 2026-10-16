@@ -1586,6 +1586,24 @@ h1, h2, h3, h4, h5 {
   font-size: 0.75rem;
 }
 
+.member-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--cyan-primary);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  transition: all var(--transition-fast);
+  margin-top: 2px;
+}
+
+.member-github-link:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--cyan-primary);
+}
+
 .member-desc {
   font-size: 0.88rem;
   color: var(--text-muted);
