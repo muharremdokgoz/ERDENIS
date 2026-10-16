@@ -2,10 +2,22 @@
   "lang": "en",
   "ui": {
     "nav": [
-      { "id": "project", "label": "Project" },
-      { "id": "goals", "label": "Goals" },
-      { "id": "team", "label": "Team" },
-      { "id": "reports", "label": "Reports" }
+      {
+        "id": "project",
+        "label": "Project"
+      },
+      {
+        "id": "goals",
+        "label": "Goals"
+      },
+      {
+        "id": "team",
+        "label": "Team"
+      },
+      {
+        "id": "reports",
+        "label": "Reports"
+      }
     ],
     "menuOpen": "Menu",
     "menuClose": "Close",
@@ -17,8 +29,6 @@
       "reports": "Reports"
     },
     "supervisor": "Project Supervisor",
-    "jury": "Jury",
-    "students": "Students",
     "reportsSoon": "Coming soon",
     "reportsView": "View PDF",
     "reportsDownload": "Download",
@@ -36,16 +46,35 @@
     "Keep every maneuver within the vehicle's flight capabilities.",
     "Compare the learning-based approach with conventional methods (attack success, evasion success, collision rate)."
   ],
-  "supervisor": { "name": "Prof. Dr. Gökçe Nur Yılmaz", "role": "Project Supervisor" },
-  "jury": [
-    { "name": "Dr. Fırat Akba" },
-    { "name": "To be announced" }
-  ],
+  "supervisor": {
+    "name": "Prof. Dr. Gökçe Nur Yılmaz",
+    "role": "Project Supervisor"
+  },
   "team": [
-    { "name": "Muharrem Dokgöz", "slug": "muharrem-dokgoz", "email": "muharrem.dokgoz@tedu.edu.tr", "github": "https://github.com/muharremdokgoz" },
-    { "name": "Zeynep Sinem Anlar", "slug": "zeynep-sinem-anlar", "email": "zeynepsinem.anlar@tedu.edu.tr", "github": "https://github.com/zsinemanlar" },
-    { "name": "Ayberk Neşeli", "slug": "ayberk-neseli", "email": "ayberk.neseli@tedu.edu.tr", "github": "https://github.com/ayberkneseli" },
-    { "name": "Ata Türkdoğan", "slug": "ata-turkdogan", "email": "ata.turkdogan@tedu.edu.tr", "github": "" }
+    {
+      "name": "Muharrem Dokgöz",
+      "slug": "muharrem-dokgoz",
+      "email": "muharrem.dokgoz@tedu.edu.tr",
+      "github": "https://github.com/muharremdokgoz"
+    },
+    {
+      "name": "Zeynep Sinem Anlar",
+      "slug": "zeynep-sinem-anlar",
+      "email": "zeynepsinem.anlar@tedu.edu.tr",
+      "github": "https://github.com/zsinemanlar"
+    },
+    {
+      "name": "Ayberk Neşeli",
+      "slug": "ayberk-neseli",
+      "email": "ayberk.neseli@tedu.edu.tr",
+      "github": "https://github.com/ayberkneseli"
+    },
+    {
+      "name": "Ata Türkdoğan",
+      "slug": "ata-turkdogan",
+      "email": "ata.turkdogan@tedu.edu.tr",
+      "github": ""
+    }
   ],
   "footer": {
     "line": "Senior Design Project 2026–2027",

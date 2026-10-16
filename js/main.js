@@ -15,11 +15,6 @@
     return n;
   }
 
-  function initials(name) {
-    var parts = name.trim().split(/\s+/);
-    return (parts[0][0] + (parts.length > 1 ? parts[parts.length - 1][0] : '')).toLocaleUpperCase('tr');
-  }
-
   function load(url) {
     return fetch(url).then(function (r) {
       if (!r.ok) throw new Error(url + ' ' + r.status);
@@ -58,25 +53,16 @@
     sup.appendChild(el('p', 'label', c.supervisor.role || c.ui.supervisor));
     sup.appendChild(el('h3', 'name', c.supervisor.name));
 
-    var jury = $('#jury');
-    jury.appendChild(el('li', 'label', c.ui.jury));
-    c.jury.forEach(function (j) {
-      jury.appendChild(el('li', /announced/i.test(j.name) ? 'tba' : '', j.name));
-    });
-
     var list = $('#people');
     c.team.forEach(function (p) {
       var li = el('li', 'person');
-      var mono = el('div', 'mono-initials', initials(p.name));
-      mono.setAttribute('aria-hidden', 'true');
-      li.appendChild(mono);
       if (p.slug) {
         var img = new Image();
         img.className = 'person-photo';
         img.alt = '';
         img.width = 96; img.height = 96;
         img.loading = 'lazy';
-        img.onload = function () { mono.replaceWith(img); };
+        img.onload = function () { li.insertBefore(img, li.firstChild); };
         img.src = 'assets/team/' + p.slug + '.jpg';
       }
       li.appendChild(el('p', 'pname', p.name));

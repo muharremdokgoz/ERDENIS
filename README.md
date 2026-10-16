@@ -20,12 +20,10 @@ Then open http://localhost:8000.
 
 All copy lives in `data/`. You never need to touch the layout.
 
-- `data/content.json`: hero text, project paragraph, goals, supervisor, jury, team members, footer, and every UI label.
+- `data/content.json`: hero text, project paragraph, goals, supervisor, team members, footer, and every UI label.
 - `data/reports.json`: the report list.
 
-**Jury member 2:** in `data/content.json`, change `"To be announced"` under `"jury"` to the name.
-
-**Team photo (optional):** put `assets/team/<slug>.jpg` (square, about 400 px) where `<slug>` is the member's `slug` in `content.json`. Without a photo, initials are shown.
+**Team photo (optional):** put `assets/team/<slug>.jpg` (square, about 400 px) where `<slug>` is the member's `slug` in `content.json`.
 
 ## Add a report
 
