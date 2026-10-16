@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ERDENIS · Page not found</title>
+  <meta name="robots" content="noindex">
+  <script>
+    /* GitHub Pages serves this file for unknown paths. Section URLs such as /team
+       are sent back to the home page, which scrolls to the section. */
+    (function () {
+      var routes = ['project', 'goals', 'team', 'reports'];
+      var seg = location.pathname.replace(/\/+$/, '').split('/').pop();
+      if (routes.indexOf(seg) > -1) {
+        try { sessionStorage.setItem('erdenis-section', seg); } catch (e) {}
+        location.replace(location.pathname.replace(/[^\/]*\/?$/, '') + location.search);
+      }
+    })();
+  </script>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-content: center; gap: 1.2rem; padding: 2rem; background: #07142B; color: #F3F0E8; font: 400 1.1rem/1.5 system-ui, sans-serif; }
+    h1 { margin: 0; font: 800 clamp(3rem, 12vw, 7rem)/1 Arial, sans-serif; letter-spacing: -.03em; }
+    a { color: #F3F0E8; }
+  </style>
+</head>
+<body>
+  <h1>404</h1>
+  <p>This page does not exist. <a href="./">Back to ERDENIS</a></p>
+</body>
+</html>
