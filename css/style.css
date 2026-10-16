@@ -206,7 +206,7 @@ ul, ol { list-style: none; }
   .r-actions { grid-column: 2; justify-content: flex-start; }
   .hero-foot { position: relative; right: auto; bottom: auto; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; margin-top: 2rem; }
   .hero { padding-bottom: 3rem; }
-  .hero-photo img { object-position: 22% 30%; }
+  .hero-photo img { object-position: 50% 30%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

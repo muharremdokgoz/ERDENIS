@@ -38,7 +38,7 @@ An empty `"file"` shows the item as "Coming soon". To add a new entry, copy one 
 
 ## Change the hero / background photo
 
-Hero: replace `assets/hero.jpg`, `hero.webp`, `hero-1200.jpg`, `hero-1200.webp` (same names, 2400 px and 1200 px wide). Faint site-wide background: same for `assets/bg*`. Update `assets/CREDITS.md` and the photo credit in `data/content.json` (`ui.photoCredit`). `assets/og.jpg` (1200×630) is the social preview image.
+Replace `assets/hero.jpg`, `hero.webp`, `hero-1200.jpg`, `hero-1200.webp` (same names, 2400 px and 1200 px wide). The same photo is used for the hero and the faint site-wide background. Update `assets/CREDITS.md` and the photo credit in `data/content.json` (`ui.photoCredit`). `assets/og.jpg` (1200×630) is the social preview image.
 
 ## URLs
 
