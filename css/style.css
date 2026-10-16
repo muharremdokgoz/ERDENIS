@@ -14,6 +14,7 @@
 
   --font-head: "Archivo", "Arial Narrow", Arial, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sub: "Instrument Sans", "IBM Plex Sans", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
 
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
@@ -98,8 +99,8 @@ ul, ol { list-style: none; }
   letter-spacing: -.035em; text-transform: uppercase; color: #fff;
   margin-left: -.04em;
 }
-.hero-tagline { margin-top: clamp(1.25rem, 3vw, 2.25rem); max-width: 34rem; font-size: clamp(1.05rem, 1.6vw, 1.35rem); line-height: 1.4; color: var(--paper); }
-.hero-byline { margin-top: 1rem; }
+.hero-tagline { margin-top: clamp(1.25rem, 3vw, 2.25rem); max-width: 34rem; font: 400 clamp(1.1rem, 1.7vw, 1.45rem)/1.4 var(--font-sub); letter-spacing: -.005em; color: var(--paper); }
+.hero-byline { margin-top: 1rem; font: 400 clamp(.9rem, 1.2vw, 1rem)/1.5 var(--font-sub); letter-spacing: .01em; color: var(--gray-300); }
 .hero-foot { position: absolute; right: var(--gutter); bottom: clamp(3rem, 7vw, 5.5rem); display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
 .credit { font-size: .62rem; color: var(--gray-400); }
 .pill {
@@ -177,7 +178,7 @@ ul, ol { list-style: none; }
 .site-footer { position: relative; background: rgba(7, 20, 43, .96); padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3rem, 6vw, 4.5rem); }
 .foot-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end; }
 .foot-brand { font: 800 1.5rem/1 var(--font-head); font-stretch: 118%; letter-spacing: .02em; margin-bottom: .75rem; }
-.foot-line { font-size: .9rem; color: var(--gray-400); }
+.foot-line { font: 400 1rem/1.6 var(--font-sub); letter-spacing: .005em; color: var(--gray-300); }
 .foot-links { display: flex; gap: 1.5rem; font: 500 .72rem/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; }
 .foot-links a { text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: .3rem; }
 .foot-links a:hover { border-color: var(--paper); }
