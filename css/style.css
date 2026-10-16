@@ -66,7 +66,7 @@ ul, ol { list-style: none; }
   display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; position: relative; z-index: 60;
   font: 800 1.15rem/1 var(--font-head); font-stretch: 118%; letter-spacing: .02em;
 }
-.brand-mark { color: var(--signal-red); }
+.brand-mark { height: 1.9rem; width: auto; }
 .nav { display: flex; gap: clamp(1.25rem, 3vw, 2.5rem); }
 .nav a {
   position: relative; text-decoration: none; padding: .4rem 0;
