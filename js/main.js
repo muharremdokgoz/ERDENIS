@@ -53,6 +53,12 @@
     sup.appendChild(el('p', 'label', c.supervisor.role || c.ui.supervisor));
     sup.appendChild(el('h3', 'name', c.supervisor.name));
 
+    var jury = $('#jury');
+    jury.appendChild(el('li', 'label', c.ui.jury));
+    c.jury.forEach(function (j) {
+      jury.appendChild(el('li', /announced/i.test(j.name) ? 'tba' : '', j.name));
+    });
+
     var list = $('#people');
     c.team.forEach(function (p) {
       var li = el('li', 'person');

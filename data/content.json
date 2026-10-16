@@ -32,7 +32,8 @@
     "reportsSoon": "Coming soon",
     "reportsView": "View PDF",
     "reportsDownload": "Download",
-    "photoCredit": "Photo: USAF / Lance Cheung"
+    "photoCredit": "Photo: USAF / Lance Cheung",
+    "jury": "Jury"
   },
   "hero": {
     "title": "ERDENIS",
@@ -50,6 +51,14 @@
     "name": "Prof. Dr. Gökçe Nur Yılmaz",
     "role": "Project Supervisor"
   },
+  "jury": [
+    {
+      "name": "Dr. Fırat Akba"
+    },
+    {
+      "name": "To be announced"
+    }
+  ],
   "team": [
     {
       "name": "Muharrem Dokgöz",

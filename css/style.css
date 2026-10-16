@@ -48,8 +48,8 @@ ul, ol { list-style: none; }
 
 /* Site-wide background photo */
 .site-bg { position: fixed; inset: 0; z-index: -1; background: var(--navy-900); }
-.site-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; opacity: .06; }
-.site-bg::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .6); }
+.site-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; opacity: .09; }
+.site-bg::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .5); }
 
 /* Header */
 .site-header {
@@ -118,8 +118,8 @@ ul, ol { list-style: none; }
 .xh-tr { top: calc(var(--header-h) + 1rem); right: var(--gutter); }
 
 /* Sections */
-.section { position: relative; padding: clamp(4.5rem, 11vw, 9rem) 0; background: rgba(7, 20, 43, .84); }
-.section-alt { background: rgba(14, 42, 82, .82); }
+.section { position: relative; padding: clamp(4.5rem, 11vw, 9rem) 0; background: rgba(7, 20, 43, .76); }
+.section-alt { background: rgba(14, 42, 82, .74); }
 .section::after {
   content: ""; position: absolute; right: var(--gutter); bottom: 1.5rem; width: 18px; height: 18px; color: rgba(243, 240, 232, .4); pointer-events: none;
   background: linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat, linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat;
@@ -147,7 +147,11 @@ ul, ol { list-style: none; }
 /* Team */
 .supervisor { border-top: 3px solid var(--signal-red); padding-top: 1.5rem; max-width: 56rem; }
 .supervisor .name { margin-top: .9rem; font: 700 clamp(2.1rem, 6vw, 5rem)/1 var(--font-head); font-stretch: 112%; letter-spacing: -.025em; color: #fff; }
-.people { margin-top: clamp(3rem, 6vw, 5rem); display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 2.5rem 2rem; }
+.jury { margin-top: clamp(2rem, 4vw, 3rem); display: flex; flex-wrap: wrap; gap: .75rem 3rem; align-items: baseline; padding-bottom: clamp(2.5rem, 5vw, 4rem); border-bottom: 1px solid var(--line); }
+.jury li { font: 500 1.25rem/1.3 var(--font-head); }
+.jury li.label { font: 500 .75rem/1.4 var(--font-mono); }
+.jury li.tba { color: var(--gray-400); }
+.people { margin-top: clamp(2rem, 4vw, 3rem); display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 2.5rem 2rem; }
 .person { border-top: 1px solid var(--line); padding-top: 1.5rem; min-width: 0; }
 .person-photo { width: 6rem; height: 6rem; object-fit: cover; filter: grayscale(1); }
 .person .pname { margin-top: 1rem; font: 600 1.3rem/1.25 var(--font-head); color: #fff; }
