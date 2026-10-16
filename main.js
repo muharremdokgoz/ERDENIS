@@ -134,7 +134,7 @@
     if (!btnCopy) return;
 
     btnCopy.addEventListener('click', () => {
-      const url = 'https://erdenis.com';
+      const url = 'https://muharremdokgoz.github.io/ERDENIS/';
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(() => {
           btnCopy.textContent = 'Copied!';
