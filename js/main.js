@@ -34,7 +34,7 @@
     var nav = $('#nav');
     c.ui.nav.forEach(function (item) {
       var a = el('a', null, item.label);
-      a.href = '#' + item.id;
+      a.href = item.id;
       nav.appendChild(a);
     });
   }
@@ -129,6 +129,54 @@
     }
   }
 
+  var ROUTES = ['project', 'goals', 'team', 'reports'];
+  var BASE = (function () {
+    var seg = location.pathname.replace(/\/+$/, '').split('/').pop();
+    return ROUTES.indexOf(seg) > -1 ? location.pathname.replace(/[^\/]*\/?$/, '') : location.pathname.replace(/[^\/]*$/, '');
+  })();
+
+  function headerHeight() {
+    return $('#header').offsetHeight || 0;
+  }
+
+  function goTo(id, push, instant) {
+    var target = document.getElementById(id === 'top' ? 'top' : id);
+    if (!target) return;
+    var top = target.getBoundingClientRect().top + window.pageYOffset - (id === 'top' ? 0 : headerHeight());
+    window.scrollTo({ top: top, behavior: instant ? 'instant' : 'smooth' });
+    var url = id === 'top' ? BASE : BASE + id;
+    if (push && location.pathname !== url) history.pushState(null, '', url);
+  }
+
+  function initRouting() {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href]');
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey || a.target) return;
+      var href = a.getAttribute('href');
+      var id = ROUTES.indexOf(href) > -1 ? href : (href === './' ? 'top' : null);
+      if (!id) return;
+      e.preventDefault();
+      goTo(id, true);
+    });
+    window.addEventListener('popstate', function () {
+      var seg = location.pathname.replace(/\/+$/, '').split('/').pop();
+      goTo(ROUTES.indexOf(seg) > -1 ? seg : 'top', false);
+    });
+    // arrived via 404.html redirect or a direct /section URL
+    var saved = null;
+    try { saved = sessionStorage.getItem('erdenis-section'); sessionStorage.removeItem('erdenis-section'); } catch (err) {}
+    var seg = location.pathname.replace(/\/+$/, '').split('/').pop();
+    var id = saved || (ROUTES.indexOf(seg) > -1 ? seg : null);
+    if (id) {
+      if (saved) history.replaceState(null, '', BASE + id);
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      goTo(id, false, true);
+      var realign = function () { goTo(id, false, true); };
+      if (document.readyState !== 'complete') window.addEventListener('load', realign);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(realign);
+    }
+  }
+
   function initHeader() {
     var header = $('#header'), toggle = $('#menuToggle'), nav = $('#nav');
     var openLabel = toggle.textContent, closeLabel = toggle.getAttribute('data-close') || 'Close';
@@ -150,13 +198,17 @@
     // active section in nav
     var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
     var map = {};
-    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var settled = false;
+    setTimeout(function () { settled = true; }, 800);
+    links.forEach(function (a) { map[a.getAttribute('href')] = a; });
     if ('IntersectionObserver' in window) {
       var spy = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
           if (en.isIntersecting) {
             links.forEach(function (a) { a.removeAttribute('aria-current'); });
             if (map[en.target.id]) map[en.target.id].setAttribute('aria-current', 'true');
+            var url = en.target.id === 'top' ? BASE : BASE + en.target.id;
+            if (settled && location.pathname !== url) history.replaceState(null, '', url);
           }
         });
       }, { rootMargin: '-45% 0px -50% 0px' });
@@ -187,6 +239,7 @@
       renderFooter(c);
       initHeader();
       initReveal();
+      initRouting();
     })
     .catch(function (err) {
       console.error('ERDENIS: could not load content', err);
