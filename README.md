@@ -11,10 +11,10 @@ Live site: https://erdenis.com.tr/
 Plain HTML, CSS and vanilla JS, no build step. The page loads JSON files, so serve it over HTTP:
 
 ```bash
-python -m http.server 8000
+python serve.py 8000
 ```
 
-Then open http://localhost:8000.
+Then open http://localhost:8000. (`python -m http.server` also works, but section URLs such as `/team` only open directly with `serve.py`, which mimics GitHub Pages' `404.html` fallback.)
 
 ## Edit content
 
@@ -36,9 +36,13 @@ All copy lives in `data/`. You never need to touch the layout.
 
 An empty `"file"` shows the item as "Coming soon". To add a new entry, copy one line in the array.
 
-## Change the background / hero photo
+## Change the hero / background photo
 
-Replace `assets/hero.jpg`, `assets/hero.webp`, `assets/hero-1200.jpg` and `assets/hero-1200.webp` (same names, 2400 px and 1200 px wide). Update `assets/CREDITS.md` and the photo credit in `data/content.json` (`ui.photoCredit`). `assets/og.jpg` (1200×630) is the social preview image.
+Replace `assets/hero.jpg`, `hero.webp`, `hero-1200.jpg`, `hero-1200.webp` (same names, 2400 px and 1200 px wide). The same photo is used for the hero and the faint site-wide background. Update `assets/CREDITS.md` and the photo credit in `data/content.json` (`ui.photoCredit`). `assets/og.jpg` (1200×630) is the social preview image.
+
+## URLs
+
+Sections have clean URLs (`/project`, `/goals`, `/team`, `/reports`). The router lives in `js/main.js`; `404.html` sends direct visits to those paths back to the home page, which scrolls to the section.
 
 ## Deploy
 
