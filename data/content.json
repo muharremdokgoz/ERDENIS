@@ -1,0 +1,95 @@
+{
+  "lang": "en",
+  "ui": {
+    "nav": [
+      {
+        "id": "project",
+        "label": "Project"
+      },
+      {
+        "id": "goals",
+        "label": "Goals"
+      },
+      {
+        "id": "team",
+        "label": "Team"
+      },
+      {
+        "id": "reports",
+        "label": "Reports"
+      }
+    ],
+    "menuOpen": "Menu",
+    "menuClose": "Close",
+    "scrollCue": "Project",
+    "sections": {
+      "project": "Project",
+      "goals": "Goals",
+      "team": "Team",
+      "reports": "Reports"
+    },
+    "supervisor": "Project Supervisor",
+    "reportsSoon": "Coming soon",
+    "reportsView": "View PDF",
+    "reportsDownload": "Download",
+    "photoCredit": "Photo: USAF / Lance Cheung",
+    "jury": "Jury"
+  },
+  "hero": {
+    "title": "ERDENIS",
+    "tagline": "Reinforcement learning based attack and evasion decision-making for UAVs",
+    "byline": "Senior Design Project · Computer Engineering · TED University"
+  },
+  "project": "ERDENIS develops a reinforcement learning based decision-making framework that lets unmanned aerial vehicles perform attack maneuvers when they hold an advantage and evasion maneuvers when they face a threat, while staying within the vehicle's physical capabilities. Agents are trained and tested in simulation, and the learned approach is compared with conventional methods.",
+  "goals": [
+    "Build simulated air engagement scenarios for UAVs.",
+    "Train an RL agent that decides when to attack and when to evade.",
+    "Keep every maneuver within the vehicle's flight capabilities.",
+    "Compare the learning-based approach with conventional methods (attack success, evasion success, collision rate)."
+  ],
+  "supervisor": {
+    "name": "Prof. Dr. Gökçe Nur Yılmaz",
+    "role": "Project Supervisor"
+  },
+  "jury": [
+    {
+      "name": "Dr. Fırat Akba"
+    },
+    {
+      "name": "To be announced"
+    }
+  ],
+  "team": [
+    {
+      "name": "Muharrem Dokgöz",
+      "slug": "muharrem-dokgoz",
+      "email": "muharrem.dokgoz@tedu.edu.tr",
+      "github": "https://github.com/muharremdokgoz"
+    },
+    {
+      "name": "Zeynep Sinem Anlar",
+      "slug": "zeynep-sinem-anlar",
+      "email": "zeynepsinem.anlar@tedu.edu.tr",
+      "github": "https://github.com/zsinemanlar"
+    },
+    {
+      "name": "Ayberk Neşeli",
+      "slug": "ayberk-neseli",
+      "email": "ayberk.neseli@tedu.edu.tr",
+      "github": "https://github.com/ayberkneseli"
+    },
+    {
+      "name": "Ata Türkdoğan",
+      "slug": "ata-turkdogan",
+      "email": "ata.turkdogan@tedu.edu.tr",
+      "github": "https://github.com/ataturkdogan"
+    }
+  ],
+  "footer": {
+    "line": "Senior Design Project 2026–2027",
+    "dept": "TED University · Department of Computer Engineering",
+    "repo": "https://github.com/muharremdokgoz/ERDENIS",
+    "repoLabel": "GitHub",
+    "email": ""
+  }
+}

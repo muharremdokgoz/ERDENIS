@@ -1,63 +1,45 @@
-# ERDENIS — Autonomous UAV Defense & Evasion Decision-Making Framework
+# ERDENIS
 
-> **Senior Capstone Graduation Design Project**  
-> **Official Project Web Page:** [https://erdenis.com](https://erdenis.com) | [GitHub Pages Showcase](https://muharremdokgoz.github.io/erdenis/)
+Website of the ERDENIS Senior Design Project (Computer Engineering, TED University, 2026–2027).
 
-An advanced reinforcement learning decision-making framework engineered for military unmanned aerial vehicles (UAVs) to autonomously detect, evaluate, and execute high-agility evasive maneuvers against dynamic aerial threats (Surface-to-Air Missiles, adversarial interceptor drones) within physical flight envelope limits.
+ERDENIS develops a reinforcement learning based decision-making framework that lets UAVs attack when they hold an advantage and evade when they face a threat, within the vehicle's physical capabilities. Agents are trained and tested in simulation and compared with conventional methods.
 
----
+Live site: https://erdenis.com.tr/
 
-## 👥 Academic Supervision & Engineering Team
+## Run locally
 
-### Academic Advisor & Supervisor
-- **Dr. Gökçe Nur Yılmaz** — Project Advisor & Academic Mentor
-
-### Core Engineering Team
-- **Muharrem Dokgöz** ([@muharremdokgoz](https://github.com/muharremdokgoz)) — Deep Reinforcement Learning & Tactical Policy Optimization
-- **Ayberk Neşeli** ([@ayberkneseli](https://github.com/ayberkneseli)) — UAV Dynamics, Aerodynamic Modeling & Kinematic Envelope Protection
-- **Zeynep Sinem Anlar** ([@zsinemanlar](https://github.com/zsinemanlar)) — AirSim / Gazebo High-Fidelity Simulation & Scenario Generation
-- **Ata Türkdoğan** — Comparative Benchmarking, APF/PID Baselines & Autopilot Integration
-
----
-
-## 🎯 Project Overview & Objectives
-
-- **The Problem:** Modern combat environments feature supersonic missile locks and adversarial drone swarms where human teleoperation latency (150ms–500ms) or electronic jamming results in fatal collisions. Rigid rule-based algorithms (APF/PID) frequently fall into local minima or exceed structural G-limits.
-- **The Solution:** A Deep Reinforcement Learning (PPO/SAC) continuous-action decision agent trained in **Microsoft AirSim** and **Open Robotics Gazebo**, optimizing survival probability while preserving vehicle structural limits (-3.0G ≤ $n_z$ ≤ +9.0G).
-- **Key Benchmarks:**
-  - Avoidance Success in Multi-Threat Saturation: **91.4%** (vs 53.0% APF baseline)
-  - Control Decision Latency: **< 82 ms** (vs 240 ms PID baseline)
-  - Flight Envelope Violations: **0% (100% compliance)**
-
----
-
-## 🚀 Live Interactive Radar Simulator
-
-The project includes an interactive 2D Tactical Radar HUD simulation engine built directly in the browser using HTML5 Canvas & Web Audio API:
-- **Threat Vector Spawning:** Surface-to-Air Missile (SAM), Adversarial Drone, and Pincer Saturation.
-- **Mode Toggle:** Deep RL Policy (Active Countermeasures & Teğetsel Evasion) vs Conventional Artificial Potential Field.
-- **Real-Time Telemetry:** Closing velocity ($V_c$), threat bearing, instantaneous G-force, and envelope integrity.
-
----
-
-## 💻 Local Execution
-
-To run the project webpage locally:
+Plain HTML, CSS and vanilla JS, no build step. The page loads JSON files, so serve it over HTTP:
 
 ```bash
-# Clone the repository
-git clone https://github.com/muharremdokgoz/erdenis.git
-
-# Navigate to project folder
-cd erdenis
-
-# Start local server (using Python)
-python -m http.server 8099
+python -m http.server 8000
 ```
 
-Open [http://localhost:8099](http://localhost:8099) in your browser.
+Then open http://localhost:8000.
 
----
+## Edit content
 
-## 📄 License & Academic Note
-Developed for the Senior Design Capstone Project. All rights reserved.
+All copy lives in `data/`. You never need to touch the layout.
+
+- `data/content.json`: hero text, project paragraph, goals, supervisor, team members, footer, and every UI label.
+- `data/reports.json`: the report list.
+
+**Team photo (optional):** put `assets/team/<slug>.jpg` (square, about 400 px) where `<slug>` is the member's `slug` in `content.json`.
+
+## Add a report
+
+1. Put the PDF in `docs/`, for example `docs/proposal.pdf`.
+2. Set the entry in `data/reports.json`:
+
+```json
+{ "title": "Project Proposal", "type": "Proposal", "date": "2026-11-15", "file": "docs/proposal.pdf" }
+```
+
+An empty `"file"` shows the item as "Coming soon". To add a new entry, copy one line in the array.
+
+## Change the background / hero photo
+
+Replace `assets/hero.jpg`, `assets/hero.webp`, `assets/hero-1200.jpg` and `assets/hero-1200.webp` (same names, 2400 px and 1200 px wide). Update `assets/CREDITS.md` and the photo credit in `data/content.json` (`ui.photoCredit`). `assets/og.jpg` (1200×630) is the social preview image.
+
+## Deploy
+
+GitHub Pages serves the repository root. `.nojekyll` disables Jekyll, `CNAME` sets the custom domain. All paths are relative, so the site also works at the github.io URL.
