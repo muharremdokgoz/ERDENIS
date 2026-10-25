@@ -2,6 +2,5 @@
   { "title": "Project Proposal", "type": "Proposal", "date": "2026-10-25", "file": "docs/project-proposal.pdf" },
   { "title": "Project Specifications Report", "type": "Report", "date": "2026-10-23", "file": "docs/project-specifications-report.pdf" },
   { "title": "Analysis Report", "type": "Report", "date": "", "file": "" },
-  { "title": "High-Level Design Report", "type": "Report", "date": "", "file": "" },
-  { "title": "Final Report", "type": "Report", "date": "", "file": "" }
+  { "title": "High-Level Design Report", "type": "Report", "date": "", "file": "" }
 ]
